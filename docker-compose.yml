@@ -6,9 +6,9 @@ services:
     restart: always
 
     environment:
-      POSTGRES_USER: api_user
-      POSTGRES_PASSWORD: api_password
-      POSTGRES_DB: minha_api
+      POSTGRES_USER: api_user${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
 
     ports:
       - "5432:5432"
