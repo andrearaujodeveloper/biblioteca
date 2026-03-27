@@ -5,12 +5,13 @@ exports.findAll = async (req, res) => {
     return res.status(200).json(livros);
 }
 
-exports.create = async (req, res) => {
-        const livrocadastrado = await livrosservice.create(req.body);
-        if(livrocadastrado===true){
-            return res.status(400).json("livro já cadastrado.");    
+exports.create = async (req, res, next) => {
+        try {
+            const livrocadastrado = await livrosservice.create(req.body, next);
+            return res.status(201).json(livrocadastrado)
+        }catch(error) {
+            next(error);
         }
-        return res.status(201).json(livrocadastrado)
 
 }
 
