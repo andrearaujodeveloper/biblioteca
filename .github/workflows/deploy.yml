@@ -1,0 +1,22 @@
+name: CI/CD Biblioteca
+on: [push]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm install
+      - run: npm test 
+
+  deploy:
+    needs: tests
+    if: github.ref == 'refs/heads/main' 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render Deploy
+        run: echo "Testes passados! Render iniciando deploy..."
