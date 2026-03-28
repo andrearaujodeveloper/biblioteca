@@ -34,13 +34,13 @@ exports.delete = async (id) => {
 async function validarLivroCadastrado(livro){
     let existe = await repo.existsByTitleAndAutor(livro);
     if(existe){
-        throw apperror("Livros cadastrado anteriomente.", 400);
+        throw apperror("Livros cadastrado anteriomente.", 409);
     }
     return;
 }
 
 function validarcampo(dado,nomecampo){
-    if(!dado.trim()){
+    if(!dado){
         throw apperror(`${nomecampo} é obrigatório!`)
     }
     return;
