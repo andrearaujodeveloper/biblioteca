@@ -18,3 +18,4 @@ pnpm-error.log*
 dist/
 build/
 *.tgz
+.git
