@@ -12,8 +12,8 @@ RUN npm install --only=production
 
 COPY . .
 
- deixar dinâmico
-ENV PORT=10000
+
+ENV PORT=1000
 EXPOSE ${PORT}
 
 CMD ["node", "index.js"]

@@ -7,12 +7,15 @@ const routes = require('./src/routes/routes.js')
 const cors = require('cors')
 
 
-app.use(cors())
-app.use(express.json())
-app.use('/api',routes)
+app.use(cors());
+app.use(express.json());
+app.use('/api',routes);
+app.get('/',(req, res)=>{
+    res.status(200).json({status: ativo})
+});
 
 app.use(error);
 
 app.listen(PORT, ()=> {
     console.log(`Servidor ouvindo a porta ${PORT}`)
-})
+});
