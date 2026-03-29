@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/api',routes);
 app.get('/',(req, res)=>{
-    res.status(200).json({status: ativo})
+    res.send('API Online!');
 });
 
 app.use(error);
