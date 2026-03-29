@@ -14,6 +14,6 @@ COPY . .
 
  deixar dinâmico
 ENV PORT=10000
-EXPOSE 10000
+EXPOSE ${PORT}
 
 CMD ["node", "index.js"]
